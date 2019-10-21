@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="data">
+    <ion-card-header>
+      <ion-card-title>
+        Nombre: {{data.name}}
+      </ion-card-title>
+      <ion-card-title>
+          UserName: {{data.username}}
+      </ion-card-title>
+      <ion-card-title>
+          Email: {{data.email}}
+      </ion-card-title>
+      <ion-card-title>
+          Address: {{data.address.street}},{{data.address.suite}},{{data.address.zipcode}},{{data.address.city}}
+      </ion-card-title>
+      <ion-card-title>
+          Phone: {{data.Phone}}
+      </ion-card-title>
+      <ion-card-title>
+          Website: {{data.website}}
+      </ion-card-title>
+      <ion-card-title>
+          Company: {{data.company.name}}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{data.company.catchPhrase}}
+      </ion-card-subtitle>
+
+    </ion-card-header>
+
+  </ion-card>
+
+</ion-content>

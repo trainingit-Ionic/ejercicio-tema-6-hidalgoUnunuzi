@@ -1,9 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
-import { Observable } from 'rxjs';
-import { ModalController } from '@ionic/angular';
-import { CardPage } from '../card/card.page';
+import { NavigationExtras, Router} from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,18 +13,22 @@ export class HomePage implements OnInit {
   displayData: any;
   constructor(
     private userService: UserService,
-    private modalController: ModalController,
+    private router: Router
   ) {
     this.userService.get().subscribe((res) => {
       this.users = res;
       console.log(this.users);
      });
   }
-/*
-  itemClick(itemId: any) {
-    this.userService.getOne(itemId).subscribe((res => {}))
+ngOnInit() {}
 
-  }*/
-
-  ngOnInit() {}
+  goToPage(user: any) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+       special: JSON.stringify(user)
+      }
+    };
+    this.router.navigate(['/user'], navigationExtras);
+    console.log('click');
+  }
 }
