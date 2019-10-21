@@ -17,7 +17,6 @@ export class HomePage implements OnInit {
   ) {
     this.userService.get().subscribe((res) => {
       this.users = res;
-      console.log(this.users);
      });
   }
 ngOnInit() {}
@@ -29,6 +28,5 @@ ngOnInit() {}
       }
     };
     this.router.navigate(['/user'], navigationExtras);
-    console.log('click');
   }
 }
