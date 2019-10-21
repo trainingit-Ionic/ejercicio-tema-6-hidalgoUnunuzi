@@ -7,5 +7,12 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of users">
+      <ion-item>
+        <p>Name: {{user.name}} Company: {{user.company.name}}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
   
 </ion-content>
